@@ -11,9 +11,13 @@ export class MediaService {
 
   constructor(private http:HttpClient) { }
 
-  getTrendingTV(){
-    let url = `${ this.urlMoviedb }/trending/all/week?api_key=${ this.apikey }`
-    return this.http.get( url ).pipe(map( (res:any) => console.timeLog(res)))
-                
+  getTrending(){
+    let url = `${this.urlMoviedb}/trending/all/day?api_key=${ this.apikey }`
+    return this.http.get( url ).pipe(map( (res:any) => res = res['results']))          
+  }
+
+  searchMedia(){
+    let url = `${this.urlMoviedb}/trending/all/day?api_key=${ this.apikey }`
+    return this.http.get( url ).pipe(map( (res:any) => res = res['results']))          
   }
 }

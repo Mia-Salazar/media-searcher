@@ -1,0 +1,46 @@
+<section class="home">
+	<article class="home__hero">
+		<h1 class="home__title">Watch the best series and movies!</h1>
+	</article>
+	<div class="container">
+		<h2 class="home__subtitle">Top Movies</h2>
+		<div class="row">
+			<div class="col-12 col-md-6 col-lg-3 co-xl-4" *ngFor="let movie of latestMovies">
+				<article class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src='http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}'>
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4">{{movie.original_title}}<i class="material-icons right">more_vert</i></span>
+						<p><a href="#">More info</a></p>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+						<p>{{movie.overview}}</p>
+					</div>
+				</article>
+			</div>
+		</div>
+		<h2 class="home__subtitle">Top TV Shows</h2>
+		<div class="row">
+			<div class="col-12 col-md-6 col-lg-3 co-xl-4" *ngFor="let serie of latestTV">
+				<article class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src='http://image.tmdb.org/t/p/w500{{serie.backdrop_path}}'>
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4">{{serie.original_name}}<i class="material-icons right">more_vert</i></span>
+						<p><a href="#">More info</a></p>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+						<p>{{serie.overview}}</p>
+					</div>
+				</article>
+			</div>
+		</div>
+	</div>
+
+
+
+</section>
