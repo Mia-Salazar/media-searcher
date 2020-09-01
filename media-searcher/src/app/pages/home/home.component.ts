@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
+
 import { MediaService } from '../../services/media.service'
 
 @Component({
@@ -12,7 +14,7 @@ export class HomeComponent implements OnInit {
   url:string = ""
   imgUrl = `http://image.tmdb.org${this.url}`
 
-  constructor(private mediaService:MediaService) {
+  constructor(private mediaService:MediaService, private router:Router) {
     this.getTrending()
   }
 
@@ -29,10 +31,14 @@ export class HomeComponent implements OnInit {
             this.latestTV.push(element)
           }
         });
-        console.log(this.latestMovies)
-        console.log(this.latestTV)
       })
-
   }
 
+  goToDetail(id, type) {
+    if(type == 'movie') {
+      this.router.navigate(['/media', id], {state: {data: {type: 'movie'}}});
+    } else  {
+      this.router.navigate(['/media', id], {state: {data: {type: 'serie'}}});
+    }
+  }
 }

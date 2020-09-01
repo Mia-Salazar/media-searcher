@@ -1,0 +1,15 @@
+<section class="container mt-5 detail">
+	<h1 class="d-flex align-items-center" *ngIf="mediaType == 'movie'">{{content.original_title}}<span class="new badge red" *ngIf="content.adult">Adult</span></h1>
+	<h1 class="d-flex align-items-center" *ngIf="mediaType == 'serie'" >{{content.name}}<span class="new badge red" *ngIf="content.adult">Adult</span></h1>
+	<h2 *ngIf="content.tagline">{{content.tagline}}</h2>
+	<figure class="m-0 my-5"><img alt="" class="detail-img" src='http://image.tmdb.org/t/p/w500{{content.poster_path}}'></figure>
+	<p>{{content.overview}}</p>
+	<ul class="collection col-12 col-md-6 my-5">
+		<li class="collection-item">Date: <span class="ml-2">{{content.release_date}}{{content.first_air_date}}</span></li>
+		<li class="collection-item">Average: <span class="ml-2">{{content.vote_average}}</span></li>
+		<li class="collection-item" *ngIf="content.runtime">Runtime: <span class="ml-2">{{content.runtime}}</span></li>
+		<li class="collection-item" *ngIf="mediaType == 'serie'" >Seasons:<span class="ml-2">{{content.number_of_seasons}}</span></li>
+		<li class="collection-item" *ngIf="mediaType == 'serie'" >Type:<span class="ml-2">{{content.type}}</span></li>
+	</ul>
+	<a class="waves-effect waves-light btn" *ngIf="content.homepage" href="{{content.homepage}}" target="_blank">Homepage</a>
+</section>

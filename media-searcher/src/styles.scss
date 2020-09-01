@@ -12,3 +12,12 @@ main {
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'Londrina Solid', cursive;
 }
+
+span.badge.new:after {
+	content:'';
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}

@@ -20,4 +20,13 @@ export class MediaService {
     let url = `${this.urlMoviedb}/trending/all/day?api_key=${ this.apikey }`
     return this.http.get( url ).pipe(map( (res:any) => res = res['results']))          
   }
+  getFilm(id){
+    let url = `${this.urlMoviedb}/movie/${id}?api_key=${ this.apikey }&language=en-US`
+    return this.http.get( url ).pipe(map( (res:any) => res))    
+  }
+
+  getSerie(id){
+    let url = `${this.urlMoviedb}/tv/${id}?api_key=${ this.apikey }&language=en-US`
+    return this.http.get( url ).pipe(map( (res:any) => res))    
+  }
 }

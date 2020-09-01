@@ -3,5 +3,10 @@
 }
 
 .brand-logo {
-	font-family: 'Londrina Solid', cursive;
+  font-family: 'Londrina Solid', cursive;
+  
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
 }
