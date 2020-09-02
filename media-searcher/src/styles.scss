@@ -21,3 +21,12 @@ img {
 	max-width: 100%;
 	max-height: 100%;
 }
+
+a.btn, button.btn {
+	background-color: #26a69a;
+	color: white;
+}
+
+[type="radio"]:not(:checked), [type="radio"]:checked {
+	opacity: 1;
+}

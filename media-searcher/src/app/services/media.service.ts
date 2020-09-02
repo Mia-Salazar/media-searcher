@@ -16,10 +16,11 @@ export class MediaService {
     return this.http.get( url ).pipe(map( (res:any) => res = res['results']))          
   }
 
-  searchMedia(){
-    let url = `${this.urlMoviedb}/trending/all/day?api_key=${ this.apikey }`
-    return this.http.get( url ).pipe(map( (res:any) => res = res['results']))          
+  searchMedia(id, type){
+    let url = `${this.urlMoviedb}/search/${type}?api_key=${ this.apikey }&query=${id}`
+    return this.http.get( url ).pipe(map( (res:any) => res = res['results']))   
   }
+
   getFilm(id){
     let url = `${this.urlMoviedb}/movie/${id}?api_key=${ this.apikey }&language=en-US`
     return this.http.get( url ).pipe(map( (res:any) => res))    

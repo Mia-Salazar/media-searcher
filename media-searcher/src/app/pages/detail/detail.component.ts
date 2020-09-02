@@ -9,9 +9,9 @@ import { MediaService } from '../../services/media.service'
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
-  mediaId:string
-  mediaType:string
-  content:any
+  mediaId:string;
+  mediaType:string;
+  content:any;
 
   constructor(private router: ActivatedRoute, private mediaService:MediaService) {
     const id = this.router.snapshot.paramMap.get('id')
@@ -37,7 +37,7 @@ export class DetailComponent implements OnInit {
       )
     } 
     
-    if (this.mediaType === 'serie'){
+    if (this.mediaType === 'tv'){
       this.mediaService.getSerie(id).subscribe(
         (r:any) =>{
           this.content = r

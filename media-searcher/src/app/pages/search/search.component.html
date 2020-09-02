@@ -1,0 +1,36 @@
+<section class="container mt-5 search">
+    <h1 class="mb-4">Search your media</h1>
+    <form (ngSubmit)="searchForm(form)" #form="ngForm">
+        
+        <div class="mb-2 d-flex align-items-center">
+            <input class="" type="radio" name="type" id="movie" value="movie" [(ngModel)]="type" required>
+            <label class="form-check-label pl-4" for="movie">
+              Movie
+            </label>
+        </div>
+        <div class="d-flex align-items-center">
+            <input class="" type="radio" name="type" id="serie" value="tv" [(ngModel)]="type" required>
+            <label class="form-check-label pl-4" for="serie">
+              Serie
+            </label>
+        </div>
+        <small class="red-text d-flex align-items-center" *ngIf="invalid"><i class="material-icons">clear</i>You need to select a type.</small>
+        <div class="form-group mt-4">
+          <label for="search">Search</label>
+          <input type="text" class="form-control" id="search" aria-describedby="search" name="search" [(ngModel)]="search" required>
+          <small id="search" class="red-text d-flex align-items-center" *ngIf="invalid"><i class="material-icons">clear</i>No results found.</small>
+        </div>
+        <button type="submit" class="waves-effect waves-light btn">Submit</button>
+    </form>
+
+    <div class="card-columns mt-5" *ngIf="results">
+        <div class="card" *ngFor="let result of results">
+          <img src="http://image.tmdb.org/t/p/w300{{result.poster_path}}" *ngIf="result.poster_path" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 class="card-title">{{result.original_title || result.original_name}}</h5>
+            <p class="card-text">{{result.overview}}</p>
+            <button class="waves-effect waves-light btn mt-4" (click)="goToDetail(result.id, type)">More info</button>
+          </div>
+        </div>
+    </div>
+</section>
