@@ -37,9 +37,9 @@ export class SearchComponent implements OnInit {
 
   goToDetail(id, type) {
     if(type == 'movie') {
-      this.router.navigate(['/media', id], {state: {data: {type: 'movie'}}});
+      this.router.navigate(['/media', id], {state: {data: {type: 'movie', return: '/search'}}});
     } else  {
-      this.router.navigate(['/media', id], {state: {data: {type: 'tv'}}});
+      this.router.navigate(['/media', id], {state: {data: {type: 'tv', return: '/search'}}});
     }
   }
 }

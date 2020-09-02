@@ -1,5 +1,6 @@
 <section class="container mt-5 detail">
-	<h1 class="d-flex align-items-center" *ngIf="mediaType == 'movie'">{{content.original_title}}<span class="new badge red" *ngIf="content.adult">Adult</span></h1>
+	<a class="waves-effect waves-light btn d-flex align-items justify-content-between" [routerLink]="return">Go back<i class="material-icons ml-2">arrow_back</i></a>
+	<h1 class="d-flex align-items-center mt-5" *ngIf="mediaType == 'movie'">{{content.original_title}}<span class="new badge red" *ngIf="content.adult">Adult</span></h1>
 	<h1 class="d-flex align-items-center" *ngIf="mediaType == 'serie'" >{{content.name}}<span class="new badge red" *ngIf="content.adult">Adult</span></h1>
 	<h2 *ngIf="content.tagline">{{content.tagline}}</h2>
 	<figure class="m-0 my-5"><img alt="" class="detail-img" src='http://image.tmdb.org/t/p/w500{{content.poster_path}}'></figure>

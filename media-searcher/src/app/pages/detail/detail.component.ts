@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 
 import { MediaService } from '../../services/media.service'
 
@@ -12,15 +12,21 @@ export class DetailComponent implements OnInit {
   mediaId:string;
   mediaType:string;
   content:any;
+  return:string
 
-  constructor(private router: ActivatedRoute, private mediaService:MediaService) {
-    const id = this.router.snapshot.paramMap.get('id')
+  constructor(private activatedRouter: ActivatedRoute, private mediaService:MediaService,private router:Router) {
+    const id = this.activatedRouter.snapshot.paramMap.get('id')
+    this.return = history.state.data.return
+    console.log(this.return)
     this.mediaId = id
     if(history.state.data.type == undefined) {
       this.mediaType = localStorage.getItem('type')
+      this.mediaId = localStorage.getItem('id')
+      this.recharge(this.mediaId)
     } else  {
       this.mediaType = history.state.data.type
       localStorage.setItem('type', this.mediaType)
+      localStorage.setItem('id', this.mediaId)
     }
   }
 
@@ -44,6 +50,10 @@ export class DetailComponent implements OnInit {
         }
       )
     }
+  }
+
+  recharge(id){
+    this.router.navigate(['/media', id],);
   }
 
 

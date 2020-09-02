@@ -36,9 +36,9 @@ export class HomeComponent implements OnInit {
 
   goToDetail(id, type) {
     if(type == 'movie') {
-      this.router.navigate(['/media', id], {state: {data: {type: 'movie'}}});
+      this.router.navigate(['/media', id], {state: {data: {type: 'movie', return: '/'}}});
     } else  {
-      this.router.navigate(['/media', id], {state: {data: {type: 'tv'}}});
+      this.router.navigate(['/media', id], {state: {data: {type: 'tv', return: '/'}}});
     }
   }
 }

@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'media/:id', component: DetailComponent },
   { path: 'search', component: SearchComponent },
   { path: 'routePath', component: HomeComponent },
-  { path: '**', pathMatch: 'full', redirectTo: '' }
+  { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 @NgModule({
